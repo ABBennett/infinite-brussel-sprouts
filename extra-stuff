@@ -1,0 +1,32 @@
+var request = $.ajax({
+method: "GET",
+url: "/tweets.json"
+});
+
+request.done(function(data) {
+  alert("hi");
+});
+
+data["text"].forEach(function(tweet) {
+  $("#tweets").append("<li>" + tweet + "</li>");
+}
+
+
+
+APPEND ONE tweet
+$(".more-sprouts").on("click", function(event) {
+  event.preventDefault();
+
+  var request = $.ajax({
+  method: "GET",
+  url: "/tweets.json"
+  });
+
+
+  request.done(function(data) {
+
+      $(".tweets").append("<li class=tweet>" + data[0]["text"] + "<div class=user>" + data[0]['username'] + "</div></li>");
+  });
+
+
+});
